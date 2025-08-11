@@ -32,7 +32,8 @@ if st.button("Predict"):
         "EstimatedSalary": estimated_salary
     }
 
-    response = requests.post("http://localhost:8000/predict", json=data)
+    response = requests.post("https://customer-churn-deploy-2mbo.onrender.com/predict", json=data)
+
     if response.status_code == 200:
         result = response.json()
         st.write("Churn Probability:", result['churn_probability'])
